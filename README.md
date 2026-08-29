@@ -37,36 +37,85 @@ Code accompanying the MSc thesis *"eHYDRA: An Ante-hoc Explanation Method for th
 - [Known Issues / Work in Progress](#known-issues--work-in-progress)
 
 
+
+---
+
+
 ## Results at a Glance
 
-Mean AUCS̃_top (higher = more faithful; masking the method's
-top-ranked timesteps first causes a larger drop in the predicted class
-score), full 128 dataset UCR archive, 2,560 samples, HYDRA as the scored
-model throughout:
+![Prediction flip rate and bounded score drop](data/predictionflip_rate_bounded_score_drop.png)
+*Flip rate and bounded relative score drop under top / random / bottom masking, HYDRA, full 128-dataset archive.*
 
-| Method | Mean AUCS̃_top | Std | Background required? | Median time/sample |
+Mean AUCS̃_top (higher = more faithful, masking the method's top ranked timesteps first causes a larger drop in the predicted class score), full 128 dataset UCR archive, 2,560 samples, HYDRA as the scored model throughout:
+
+| Method | Mean AUCS̃_top | Std | Background required? | Median time/sample (full-128, CUDA) |
 |---|---|---|---|---|
-| Shapley Value Sampling | 0.370 | 0.267 | mean-value coalition | slow |
-| Feature Ablation | 0.363 | 0.265 | mean-value coalition | slow |
-| **eHYDRA (ours)** | **0.358** | 0.289 | **none** | **fastest** |
-| MrSQM (native) | 0.246 | 0.228 | n/a | fast |
+| Shapley Value Sampling | 0.370 | 0.267 | mean-value coalition | 0.970s |
+| Feature Ablation | 0.363 | 0.265 | mean-value coalition | 0.041s |
+| **eHYDRA (ours)** | **0.358** | 0.289 | **none** | **0.185s** |
+| MrSQM (native) | 0.246 | 0.228 | n/a | <0.001s* |
 
-eHYDRA is statistically indistinguishable from Shapley Value Sampling on
-score drop at the 38 dataset subset scale, is approximately 3–5x faster than any
-TSHAP condition or Shapley Value Sampling, and requires no background
-distribution or coalition-sampling hyperparameters of any kind. Adding TSHAP
-to the comparison (with a non-trivial background) outperforms all other
-methods tested, but eHYDRA leads specifically in the high-frequency/
-high-curvature signal-morphology cluster, and matches TSHAP's region
-agreement in the spiky/multi-class cluster even where TSHAP's localisation
-advantage is largest. See the thesis for the full breakdown by signal
-morphology cluster, masking fraction, and evaluation metric.
+![Prediction flip rate and bounded score drop](outputs/plots/viva_slides/alternative_methods_comparison.png)
 
-*(A results figure — e.g. `outputs/plots/tscaptum/overall_aucs_top.png` or
-`alternative_methods_comparison.png` from [Section 5](#5-comparison-to-other-explainers)
-— can be embedded here with `![Method comparison](outputs/plots/tscaptum/overall_aucs_top.png)`
-once you've picked which one best represents the headline result.)
+*\*MrSQM reads saliency directly from its own symbolic model's coefficients rather than computing an explanation for a separate classifier, so its timing isn't directly comparable to the other four methods — see below.*
 
+eHYDRA is statistically indistinguishable from Shapley Value Sampling on score drop at the 38 dataset subset scale, is 3–5x faster than any TSHAP condition or Shapley Value Sampling and requires no background distribution or coalition sampling hyperparameters of any kind. Adding TSHAP to the comparison (with a non-trivial background) outperforms all other methods tested, but eHYDRA leads specifically in the high-frequency/high-curvature signal-morphology cluster and matches TSHAP's region agreement in the spiky/multi-class cluster even where TSHAP's localisation advantage is largest. See the thesis for the full breakdown by signal morphology cluster, masking fraction and evaluation metric.
+
+
+
+### Timing and Complexity
+
+Per-method timing is reported across two separate conditions rather than one consolidated run. The numbers below are accurate but **not directly comparable to each other**, since they differ in both hardware and evaluation scale.
+
+
+
+**38-dataset stratified subset, CPU** (`run_windowshap_comparison.py`, `run_captum_comparison.py` without `--device cuda`):
+
+| Method | Median time (s) | Relative to eHYDRA |
+|---|---|---|
+| MrSQM (native) | <0.001 | eHYDRA ~200x slower — see note above |
+| Feature Ablation | 0.059 | eHYDRA 3.4x slower |
+| **eHYDRA** | **0.202** | — |
+| WindowSHAP | 0.960 | eHYDRA ~5x faster |
+| Shapley Value Sampling | 1.387 | eHYDRA 6.8x faster |
+
+
+
+**Full 128-dataset archive, CUDA** (`run_captum_comparison.py --device cuda`, TSHAP conditions via `--tshap-train-background`):
+
+| Method | Median time (s) | Relative to eHYDRA |
+|---|---|---|
+| MrSQM (native) | <0.001 | eHYDRA ~200x slower — see note above |
+| Feature Ablation | 0.041 | eHYDRA 4.5x slower |
+| **eHYDRA** | **0.185** | — |
+| TSHAP (zero background) | 0.590 | eHYDRA 3.2x faster |
+| TSHAP (centroid background) | 0.620 | eHYDRA 3.4x faster |
+| TSHAP (train background) | 0.840 | eHYDRA 4.5x faster |
+| Shapley Value Sampling | 0.970 | eHYDRA 5.2x faster |
+
+
+
+eHYDRA's own median time is nearly identical across both conditions (0.202s CPU vs. 0.185s CUDA) as expected since eHYDRA's projection is a single fixed cost closed form pass and doesn't benefit much from GPU parallelism the way coalition sampling methods do.
+
+
+
+**Complexity.** eHYDRA's cost advantage is structural, not just empirical, each method's cost below is in terms of forward model evaluations required per explained instance:
+
+| Method | Model calls | Background required? | Tunable hyperparameters |
+|---|---|---|---|
+| eHYDRA | O(1), closed-form | No | None |
+| MrSQM (native) | O(1), native | No | None |
+| Feature Ablation | O(n) | Yes | Segment count *n* |
+| WindowSHAP | O(n·s) | Yes | Segments *n*, samples *s* |
+| Shapley Value Sampling | O(n·p) | Yes | Segments *n*, permutations *p* |
+| TSHAP | O(k), exact per-window closed-form | Yes | Window count *k*, background |
+
+eHYDRA and MrSQM are the only methods requiring no coalition or ablation loop at all. Every other method's cost scales with a chosen segmentation or sampling budget, on top of requiring a background distribution — itself a design choice shown in the thesis (Section 5, TSHAP Comparison) to materially affect faithfulness.
+
+
+
+
+---
 
 ## Environment Setup
 
@@ -103,10 +152,7 @@ else "cpu")`. `--device` is only exposed as a CLI flag on `scripts/tscaptum/run_
 
 ## Quickstart
 
-Minimal path from a fresh clone to a first result, using a small stratified
-subset so it completes quickly. Assumes the environment is already set up
-(see [Environment Setup](#environment-setup)) and `data/summary.csv` /
-`data/ucr_dataset_types.csv` are present.
+Minimal path from a fresh clone to a first result, using a small stratified subset so it completes quickly. Assumes the environment is already set up (see [Environment Setup](#environment-setup)) and `data/summary.csv` / `data/ucr_dataset_types.csv` are present.
 
 ```bash
 # Step 1: Build the signal morphology clusters (required by almost everything else)
@@ -125,27 +171,14 @@ python scripts/robustness_testing/run_hydra_ablation.py \
 cat outputs/saliency/ablation_quickstart/hydra_saliency_ablation_summary.csv
 ```
 
-If step 3 shows four saliency variants (`max_only`, `min_only`,
-`min_activation_scaled`, `combined`) with non-null flip-rate and score-drop
-columns, the environment is working end to end. From here, see the
-[Workflow Overview](#workflow-overview) for the full pipeline, or jump
-directly to the [Command Reference](#command-reference) section you need.
+If step 3 shows four saliency variants (`max_only`, `min_only`, `min_activation_scaled`, `combined`) with non-null flip-rate and score-drop columns, the environment is working end to end. From here, see the [Workflow Overview](#workflow-overview) for the full pipeline, or jump directly to the [Command Reference](#command-reference) section you need.
 
 
 ## Data
 
-All experiments use the [UCR Time Series Classification Archive](https://www.timeseriesclassification.com/)
-(Dau et al., 2019), fetched at runtime via [`aeon`](https://github.com/aeon-toolkit/aeon)
-rather than redistributed in this repository. `data/summary.csv` and
-`data/ucr_dataset_types.csv` list which of the 128 datasets are used and
-their UCR assigned type metadata. The underlying series are downloaded
-and cached locally by `aeon` the first time a dataset is requested (needs
-network access on first run). The UCR archive is provided for academic,
-non-commercial research use (see the archive's own terms for details).
+All experiments use the [UCR Time Series Classification Archive](https://www.timeseriesclassification.com/) (Dau et al., 2019), fetched at runtime via [`aeon`](https://github.com/aeon-toolkit/aeon) rather than redistributed in this repository. `data/summary.csv` and `data/ucr_dataset_types.csv` list which of the 128 datasets are used and their UCR assigned type metadata. The underlying series are downloaded and cached locally by `aeon` the first time a dataset is requested (needs network access on first run). The UCR archive is provided for academic, non-commercial research use (see the archive's own terms for details).
 
-`data/synthetic_dataset/` is generated locally by this repository (see
-[Section 2](#2-synthetic-ground-truth-dataset-generation)) and requires no
-external download.
+`data/synthetic_dataset/` is generated locally by this repository (see [Section 2](#2-synthetic-ground-truth-dataset-generation)) and requires no external download.
 
 
 ## Repository Structure
@@ -317,9 +350,7 @@ python3 scripts/synthetic_dataset_generation/generate_datasets.py \
 
 ### 3. Baseline Saliency Evaluation
 
-**Run the HYDRA / LR / MrSQM masking evaluation** across the full archive.
-This produces the `masking_original_report` style output consumed by the
-baseline flip-rate / score-drop tables.
+**Run the HYDRA / LR / MrSQM masking evaluation** across the full archive. This produces the `masking_original_report` style output consumed by the baseline flip-rate / score-drop tables.
 
 ```bash
 # This recreates the set of results in outputs/saliency/masking_original_report
@@ -387,9 +418,7 @@ python main.py plot-saliency \
 
 ### 4. Robustness
 
-**Max/min saliency-construction ablation:** Compares four variants of how
-HYDRA's max/min convolutional features are projected into saliency
-(max-only, min-only, activation-scaled min, combined).
+**Max/min saliency-construction ablation:** Compares four variants of how HYDRA's max/min convolutional features are projected into saliency (max-only, min-only, activation-scaled min, combined).
 
 ```bash
 python scripts/robustness_testing/run_hydra_ablation.py \
@@ -433,7 +462,7 @@ python scripts/robustness_testing/run_margin_saliency.py \
   --datasets-per-cluster 10 --fraction 0.10 --seed 42
 ```
 
-**Control tests:** Including seed stability (5 refits), label permutation, and weight permutation to confirm the saliency map encodes genuine class-discriminative information rather than a generic evaluation artefact.
+**Control tests:** Including seed stability (5 refits), label permutation, and weight permutation to confirm the saliency map encodes genuine class discriminative information rather than a generic evaluation artefact.
 
 ```bash
 python scripts/robustness_testing/run_sanity_checks.py \
@@ -449,9 +478,7 @@ python scripts/robustness_testing/run_sanity_checks.py \
 
 
 
-**Perturbation-operator sensitivity:** Tests whether the faithfulness
-ordering survives replacing the masking operator (global mean, local mean,
-linear interpolation, blur).
+**Perturbation-operator sensitivity:** Tests whether the faithfulness ordering survives replacing the masking operator (global mean, local mean, linear interpolation, blur).
 
 ```bash
 python scripts/robustness_testing/run_perturbation_operators.py \
@@ -491,9 +518,7 @@ python scripts/analysis/analyse_perturbation_operators.py \
   --fraction 0.10
 ```
 
-**Correctness stratification:** Reruns the HYDRA masking evaluation with
-incorrect predictions included to test whether the faithfulness signal
-depends on the prediction being correct.
+**Correctness stratification:** Reruns the HYDRA masking evaluation with incorrect predictions included to test whether the faithfulness signal depends on the prediction being correct.
 
 ```bash
 python scripts/robustness_testing/run_correctness_supplement.py \
@@ -511,9 +536,7 @@ python scripts/robustness_testing/run_correctness_supplement.py \
 
 
 
-**Confidence stratification:** Tests whether the faithfulness signal is
-concentrated in low-confidence predictions. Reuses an existing baseline
-saliency output, no model refitting required.
+**Confidence stratification:** Tests whether the faithfulness signal is concentrated in low-confidence predictions. Reuses an existing baseline saliency output, no model refitting required.
 
 ```bash
 python scripts/analysis/run_confidence_stratification.py \
@@ -537,8 +560,7 @@ python scripts/analysis/run_confidence_stratification.py \
 
 ### 5. Comparison to Other Explainers
 
-**WindowSHAP comparison:** HYDRA saliency vs. a model agnostic KernelSHAP
-baseline, measuring window overlap (IoU) and perturbation sensitivity.
+**WindowSHAP comparison:** HYDRA saliency vs. a model agnostic KernelSHAP baseline, measuring window overlap (IoU) and perturbation sensitivity.
 
 ```bash
 python scripts/robustness_testing/run_windowshap_comparison.py \
@@ -573,8 +595,7 @@ python scripts/tscaptum/run_captum_comparison.py \
 ```
 
 
-**TSHAP scaling check:** (run this first before enabling TSHAP on a large
-run  (see the diagnostic note below)):
+**TSHAP scaling check:** (run this first before enabling TSHAP on a large run (see the diagnostic note below)):
 
 ```bash
 python scripts/tscaptum/check_tshap_scaling.py \
@@ -616,9 +637,7 @@ Requires `captum_pairwise_samples.csv`, `captum_cluster_deletion_summary.csv`, a
 
 
 
-**Morphology disagreement:** Correlates HYDRA vs WindowSHAP agreement
-against continuous morphology features. *(Depends on the WindowSHAP
-comparison above)*
+**Morphology disagreement:** Correlates HYDRA vs WindowSHAP agreement against continuous morphology features. *(Depends on the WindowSHAP comparison above)*
 
 ```bash
 python scripts/analysis/run_morphology_disagreement.py \
@@ -638,8 +657,8 @@ python scripts/analysis/test_smooth_cluster_composition.py \
     --closest-csv outputs/clustering/csv/closest_20_datasets_per_cluster.csv
 ```
 
-**Qualitative saliency comparison figure:** (HYDRA / MrSQM / WindowSHAP or
-TSHAP overlay on one sample):
+**Qualitative saliency comparison figure:** (HYDRA / MrSQM / WindowSHAP or TSHAP overlay on one sample):
+
 ```bash
 python scripts/plotting/plot_tshap_qualitative.py \
     --dataset GunPoint \
@@ -661,8 +680,8 @@ python scripts/plotting/plot_tshap_qualitative.py \
 
 ### 6. Ground-Truth Comparison & TSHAP
 
-**Train HYDRA on the synthetic data:** (from
-[Section 2](#2-synthetic-ground-truth-dataset-generation)):
+**Train HYDRA on the synthetic data:** (from [Section 2](#2-synthetic-ground-truth-dataset-generation)):
+
 ```bash
 python3 scripts/pipeline/train_hydra_on_synthetic.py --cluster all --save-models
 ```
@@ -682,65 +701,6 @@ TODO (Need to add flag tables for the following:):
 > thing to do here — flag if you'd like them added now rather than left as
 > a TODO.
 
----
-
-### 7. Timing and Complexity
-
-**Runtime:** Per method wall clock timing is currently reported across two
-separate conditions rather than one consolidated run — the numbers below
-are accurate but **not directly comparable to each other**, since they
-differ in both hardware and evaluation scale:
-
-**38-dataset stratified subset, CPU:** (`run_windowshap_comparison.py`,
-`run_captum_comparison.py` without `--device cuda`):
-
-| Method | Median time (s) | Speed-up vs. eHYDRA |
-|---|---|---|
-| MrSQM (native) | <0.001 | eHYDRA ~200x faster |
-| Feature Ablation | 0.059 | eHYDRA 3.4x slower |
-| **eHYDRA** | **0.202** | — |
-| WindowSHAP | 0.960 | eHYDRA ~5x faster |
-| Shapley Value Sampling | 1.387 | eHYDRA 6.8x faster |
-
-
-
-**Full 128-dataset archive, CUDA:** (`run_captum_comparison.py --device cuda`, TSHAP conditions via `--tshap-train-background`):
-
-| Method | Median time (s) | Speed-up vs. eHYDRA |
-|---|---|---|
-| MrSQM (native) | <0.001 | eHYDRA ~200x faster |
-| Feature Ablation | 0.041 | eHYDRA 4.5x slower |
-| **eHYDRA** | **0.185** | — |
-| TSHAP (zero background) | 0.590 | eHYDRA 3.2x faster |
-| TSHAP (centroid background) | 0.620 | eHYDRA 3.4x faster |
-| Shapley Value Sampling | 0.970 | eHYDRA 5.2x faster |
-| TSHAP (train background) | 0.840 | eHYDRA 4.5x faster |
-
-eHYDRA's own median time is consistent across both conditions (0.202s
-CPU / 0.185s CUDA), which is expected, eHYDRA's projection is a fixed cost
-closed form pass and doesn't benefit much from GPU parallelism the way
-coalition sampling methods do.
-
-
-**Complexity:** eHYDRA's cost advantage is structural, not just empirical each method's cost in terms of forward model evaluations required per
-explained instance:
-
-| Method | Model calls | Background required? | Tunable hyperparameters |
-|---|---|---|---|
-| eHYDRA | O(1), closed-form | No | None |
-| MrSQM (native) | O(1), native | No | None |
-| Feature Ablation | O(n) | Yes | Segment count *n* |
-| WindowSHAP | O(n·s) | Yes | Segments *n*, samples *s* |
-| Shapley Value Sampling | O(n·p) | Yes | Segments *n*, permutations *p* |
-| TSHAP | O(k), exact per-window closed-form | Yes | Window count *k*, background |
-
-
-
-eHYDRA and MrSQM are the only methods requiring no coalition or ablation
-loop at all, every other method's cost scales with a chosen segmentation
-or sampling budget, in addition to requiring a background distribution,
-itself a design choice shown in the thesis (Section: TSHAP Comparison) to
-materially affect faithfulness.
 
 ---
 
@@ -759,15 +719,12 @@ and their reference implementations:
 - **UCR Archive** — Dau et al. (2019), *The UCR Time Series Archive*. [Archive](https://www.timeseriesclassification.com/)
 - **aeon** — the `aeon` toolkit, used for dataset loading and several baseline classifiers. [Code](https://github.com/aeon-toolkit/aeon)
 
-See the thesis References chapter for the complete bibliography and full
-citations for every method and evaluation protocol referenced in the code
-comments.
+See the thesis References chapter for the complete bibliography and full citations for every method and evaluation protocol referenced in the code comments.
 
 
 ## Citation
 
-If you use this code, the eHYDRA method or the synthetic ground truth
-generators, please cite the thesis:
+If you use this code, the eHYDRA method or the synthetic ground truth generators, please cite the thesis:
 
 ```bibtex
 @mastersthesis{mcloughlin2026ehydra,
@@ -784,23 +741,16 @@ A machine readable [`CITATION.cff`](CITATION.cff) is also included.
 
 ## License
 
-Released under the [MIT License](LICENSE). The UCR archive and other
-third party data/code referenced above retain their own respective licenses, see [Data](#data) and [Built On](#built-on).
+Released under the [MIT License](LICENSE). The UCR archive and other third party data/code referenced above retain their own respective licenses, see [Data](#data) and [Built On](#built-on).
 
 
 ## Contributing
 
-This is thesis-accompanying research code, not an actively maintained
-library. It's shared to support reproducibility and reuse, not as a
-production ready package. That said:
+This is thesis-accompanying research code, not an actively maintained library. It's shared to support reproducibility and reuse, not as a production ready package. That said:
 
-- **Issues and questions are welcome:** If something doesn't run or a
-  result doesn't reproduce, please open an issue with your environment
-  details and the exact command you ran.
+- **Issues and questions are welcome:** If something doesn't run or a result doesn't reproduce, please open an issue with your environment details and the exact command you ran.
 
-- **Pull requests:** For bug fixes are welcome, larger feature additions are
-  probably better as your own fork, since this repo is meant to stay a
-  faithful record of what the thesis actually ran (For now).
+- **Pull requests:** For bug fixes are welcome, larger feature additions are probably better as your own fork, since this repo is meant to stay a faithful record of what the thesis actually ran (For now).
 
 - **Future Work:** I do have plans to wrap this up into a more easily accessible pip package along with adding some extra functionality but there I'm not holding myself to a strict timeline for when this will happen.
   
@@ -813,25 +763,19 @@ production ready package. That said:
 
 ## Known Issues / Work in Progress
 
-This is a fresh repo that I've moved the code to for the final push however this the code within this repo has gone through several refactors during the course of the thesis. Items below are tracked and being worked
-through, but may not be fully resolved by the final deadline **(30/08/2026)**:
+This is a fresh repo that I've moved the code to for the final push however this the code within this repo has gone through several refactors during the course of the thesis. Items below are tracked and being worked through, but may not be fully resolved by the final deadline **(30/08/2026)**:
 
-- **Output directory naming/saving is inconsistent.** `outputs/saliency/imgs`,
-  `outputs/plots/...`, and `outputs/figures/...` are all currently in use
-  for conceptually the same thing (generated figures). A consolidation to a
-  single `plots/` location under `data/outputs/` is planned.
-  As the project was growing I altered what would be the best place to store files, originally all accompanying plots/visualisations were all saved within their respective experiment folders however as the repo and number of experiments grew this became less maintainable & traversable. I did somewhat of a refactor to try consolidate all generated images within `outputs/plots/` but some may still be saved to thier experiment folders or within `outputs/figures/` which I was using for temporary testing before the full move.
+- **Output directory naming/saving is inconsistent.** `outputs/saliency/imgs`, `outputs/plots/...`, and `outputs/figures/...` are all currently in use
+  for conceptually the same thing (generated figures). A consolidation to a single `plots/` location under `data/outputs/` is planned. As the project was growing I altered what would be the best place to store files, originally all accompanying plots/visualisations were all saved within their respective experiment folders however as the repo and number of experiments grew this became less maintainable & traversable. I did somewhat of a refactor to try consolidate all generated images within `outputs/plots/` but some may still be saved to thier experiment folders or within `outputs/figures/` which I was using for temporary testing before the full move.
+
 - **`masking_original_report`** The actual report generaiton can take a very long time to run. While I would encourage rerunning the entire analysis for further proof that the results are consistent, this can take a number of days to run so be forwarned of the time & memory needs required. I will attahc a spec of my PC below to give some indication of what exact hardware I was using.
-- **Test suite location**: unit and smoke tests are being consolidated into
-  `scripts/tests/`; some may still be found alongside their generators in
-  `scripts/synthetic_dataset_generation/`.
+
+- **Test suite location**: unit and smoke tests are being consolidated into `scripts/tests/`; some may still be found alongside their generators in `scripts/synthetic_dataset_generation/`.
 
 
 ## PC Specs
 
-Reported for reproducibility of the timing/complexity results in
-[Section 7](#7-timing-and-complexity). Timing is
-hardware dependent, so results run on different specs won't match exactly.
+Reported for reproducibility of the timing/complexity results in [Section 7](#7-timing-and-complexity). Timing is hardware dependent, so results run on different specs won't match exactly.
 
 - **CPU:** AMD Ryzen 7 3700X 8-Core Processor
 - **Motherboard:** TUF GAMING X570-PLUS (WI-FI) 

@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,-0.009412599332252077,-0.05960451908472697,0.0,0.69,AllGestureWiimoteX,HYDRA
+0.05,random,global_mean,50,0.06339261031661134,0.21342432459248203,0.052000000000000005,0.69,AllGestureWiimoteX,HYDRA
+0.05,top,global_mean,50,0.3066636820784432,0.7702685498083574,0.32,0.69,AllGestureWiimoteX,HYDRA
+0.1,bottom,global_mean,50,0.06246134032795927,0.24478534625859946,0.12,0.69,AllGestureWiimoteX,HYDRA
+0.1,random,global_mean,50,0.25778927582370054,0.6278414405643297,0.324,0.69,AllGestureWiimoteX,HYDRA
+0.1,top,global_mean,50,0.6335318090045857,0.9750314467771127,0.84,0.69,AllGestureWiimoteX,HYDRA
+0.2,bottom,global_mean,50,0.32464391029806394,0.7603309838462851,0.7,0.69,AllGestureWiimoteX,HYDRA
+0.2,random,global_mean,50,0.7028515996188722,0.9284551910343701,0.904,0.69,AllGestureWiimoteX,HYDRA
+0.2,top,global_mean,50,1.5015406297897016,1.0,1.0,0.69,AllGestureWiimoteX,HYDRA

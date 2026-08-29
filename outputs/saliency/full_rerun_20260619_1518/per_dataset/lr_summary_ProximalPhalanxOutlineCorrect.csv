@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,-1.229965898562953,-0.48439744361880493,0.06,0.8350515463917526,ProximalPhalanxOutlineCorrect,LR
+0.05,random,global_mean,50,-4.214449602395934,-0.3207021378288396,0.256,0.8350515463917526,ProximalPhalanxOutlineCorrect,LR
+0.05,top,global_mean,50,-11.886345196786316,-0.76,0.12,0.8350515463917526,ProximalPhalanxOutlineCorrect,LR
+0.1,bottom,global_mean,50,-1.835633390274625,-0.6269426754282295,0.06,0.8350515463917526,ProximalPhalanxOutlineCorrect,LR
+0.1,random,global_mean,50,-6.63804427675876,-0.3322604767051178,0.28400000000000003,0.8350515463917526,ProximalPhalanxOutlineCorrect,LR
+0.1,top,global_mean,50,-6.4544481420359645,-0.76,0.12,0.8350515463917526,ProximalPhalanxOutlineCorrect,LR
+0.2,bottom,global_mean,50,-23.11080770815322,-0.76,0.12,0.8350515463917526,ProximalPhalanxOutlineCorrect,LR
+0.2,random,global_mean,50,-8.828273598332737,-0.22711403296131383,0.316,0.8350515463917526,ProximalPhalanxOutlineCorrect,LR
+0.2,top,global_mean,50,-40.60175099263492,-0.76,0.12,0.8350515463917526,ProximalPhalanxOutlineCorrect,LR

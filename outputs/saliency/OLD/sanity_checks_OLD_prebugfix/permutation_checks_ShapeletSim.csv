@@ -1,0 +1,4 @@
+dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
+ShapeletSim,real,0.15000000000000002,0.35,60
+ShapeletSim,shuffled_labels,0.0,-0.05,60
+ShapeletSim,permuted_weights,0.15000000000000002,0.25,60

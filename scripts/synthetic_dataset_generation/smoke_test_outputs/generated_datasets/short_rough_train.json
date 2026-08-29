@@ -1,0 +1,45 @@
+{
+  "cluster_key": "short_rough",
+  "cluster_name": "Short / moderately rough",
+  "generator_class": "FrequencyBurstGenerator",
+  "config": {
+    "cluster_key": "short_rough",
+    "cluster_name": "Short / moderately rough",
+    "tslength": 250,
+    "splength": 50,
+    "sp_idx": [
+      50,
+      150
+    ],
+    "min_f": 6.7,
+    "max_f": 18.2,
+    "f_base": 0.0,
+    "wave": "sine",
+    "noise_std": 0.059,
+    "clf_threshold": 24.9,
+    "legacy_rng": false
+  },
+  "calibration_source": {
+    "cluster_key": "short_rough",
+    "cluster_name": "Short / moderately rough",
+    "tslength": 250,
+    "splength": 50,
+    "min_f": 6.7,
+    "max_f": 18.2,
+    "f_base": 0.0,
+    "wave": "sine",
+    "noise_std": 0.059,
+    "_source_spectral_centroid_quantiles": {
+      "0.25": 0.026626826688727602,
+      "0.5": 0.0443330907982966,
+      "0.75": 0.0726759927480697
+    },
+    "_source_mean_abs_diff_median": 0.19646075013946868,
+    "_window_to_series_ratio": 0.4
+  },
+  "n_samples_total": 40,
+  "seed": 42,
+  "test_fraction": 0.3,
+  "split": "train",
+  "n_samples_split": 28
+}

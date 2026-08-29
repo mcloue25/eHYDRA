@@ -1,0 +1,43 @@
+{
+  "cluster_key": "smooth",
+  "cluster_name": "Smooth / low-complexity",
+  "generator_class": "LevelShiftGenerator",
+  "config": {
+    "cluster_key": "smooth",
+    "cluster_name": "Smooth / low-complexity",
+    "tslength": 500,
+    "splength": 100,
+    "sp_idx": [
+      100,
+      300
+    ],
+    "min_level": 0.744,
+    "max_level": 2.976,
+    "drift_freq": 3.86,
+    "drift_amplitude": 0.5,
+    "baseline_len": 100,
+    "clf_threshold": 3.7199999999999998
+  },
+  "calibration_source": {
+    "cluster_key": "smooth",
+    "cluster_name": "Smooth / low-complexity",
+    "tslength": 500,
+    "splength": 100,
+    "min_level": 0.744,
+    "max_level": 2.976,
+    "drift_freq": 3.86,
+    "drift_amplitude": 0.5,
+    "_source_spectral_centroid_quantiles": {
+      "0.25": 0.0049563816134694,
+      "0.5": 0.007726149884417,
+      "0.75": 0.0095674053002776
+    },
+    "_source_mean_abs_diff_median": 0.0371972891129553,
+    "_source_local_wander_estimate": 0.371972891129553
+  },
+  "n_samples_total": 300,
+  "seed": 42,
+  "test_fraction": 0.3,
+  "split": "test",
+  "n_samples_split": 90
+}

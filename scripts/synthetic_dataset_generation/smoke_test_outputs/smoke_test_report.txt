@@ -1,0 +1,104 @@
+
+======================================================================
+SMOKE TEST -- synthetic_dataset_generation
+======================================================================
+n_samples=40  seed=42
+
+======================================================================
+STEP 1: calibration.py
+======================================================================
+wrote /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/calibrated_params/high_frequency.json
+wrote /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/calibrated_params/short_rough.json
+wrote /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/calibrated_params/smooth.json
+wrote /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/calibrated_params/spiky.json
+STATUS: OK
+
+======================================================================
+STEP 2: validate_reproduction.py (Tier A)
+======================================================================
+=== Check 1: bit-exact reproduction vs reference/original_tshap_synthetic.py ===
+  X_allclose: True
+  y_array_equal: True
+  attribs_allclose: True
+  X_max_abs_diff: 0.0
+  attribs_max_abs_diff: 0.0
+  background_allclose: True
+  predict_proba_allclose: True
+  RESULT: PASS
+
+=== Check 2: parameter recovery -- high_frequency ===
+  correlation(recovered, true): 0.9984  (want > 0.95)
+  MAE(recovered, true): 0.666
+  noise robustness: clean_corr=0.9984 noisy_corr=0.9948 clean_mae=0.666 noisy_mae=1.209
+
+=== Check 2: parameter recovery -- short_rough ===
+  correlation(recovered, true): 0.9995  (want > 0.95)
+  MAE(recovered, true): 0.231
+  noise robustness: clean_corr=0.9995 noisy_corr=0.8543 clean_mae=0.231 noisy_mae=2.610
+
+=== Check 2: parameter recovery -- smooth ===
+  correlation(recovered, true): 0.9991  (want > 0.90 -- lower bar, see baseline_bias)
+  MAE(recovered, true): 0.033
+  baseline bias (no-injection estimator output): mean=0.005 std=0.034 vs typical injected level scale=1.86
+  (bias_std should be well below typical_level_scale, or the flanking-
+   baseline trick isn't cleanly separating injected level from drift)
+
+=== Check 2: parameter recovery -- spiky ===
+  tier classification accuracy: 0.9900  (want > 0.90 -- if this is low,
+   widen the min_duration/max_duration separation between tiers, or
+   raise drift_rate, in calibration.py's calibrate_spiky)
+
+STATUS: OK
+
+======================================================================
+STEP 3: generate_datasets.py --cluster all --n-samples 40 --seed 42
+======================================================================
+[high_frequency]
+  train: 28 samples -> /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/smoke_test_outputs/generated_datasets/high_frequency_train.npz
+  test: 12 samples -> /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/smoke_test_outputs/generated_datasets/high_frequency_test.npz
+[short_rough]
+  train: 28 samples -> /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/smoke_test_outputs/generated_datasets/short_rough_train.npz
+  test: 12 samples -> /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/smoke_test_outputs/generated_datasets/short_rough_test.npz
+[smooth]
+  train: 28 samples -> /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/smoke_test_outputs/generated_datasets/smooth_train.npz
+  test: 12 samples -> /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/smoke_test_outputs/generated_datasets/smooth_test.npz
+[spiky]
+  train: 28 samples -> /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/smoke_test_outputs/generated_datasets/spiky_train.npz
+  test: 12 samples -> /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/smoke_test_outputs/generated_datasets/spiky_test.npz
+STATUS: OK
+
+======================================================================
+STEP 4: dataset_io round-trip check
+======================================================================
+  high_frequency   test    X=(12, 1, 250)  y=(12,)  attribs=(12, 1, 250)  nan_free=True  OK
+  high_frequency   train   X=(28, 1, 250)  y=(28,)  attribs=(28, 1, 250)  nan_free=True  OK
+  short_rough      test    X=(12, 1, 250)  y=(12,)  attribs=(12, 1, 250)  nan_free=True  OK
+  short_rough      train   X=(28, 1, 250)  y=(28,)  attribs=(28, 1, 250)  nan_free=True  OK
+  smooth           test    X=(12, 1, 500)  y=(12,)  attribs=(12, 1, 500)  nan_free=True  OK
+  smooth           train   X=(28, 1, 500)  y=(28,)  attribs=(28, 1, 500)  nan_free=True  OK
+  spiky            test    X=(12, 1, 500)  y=(12,)  attribs=(12, 1, 500)  nan_free=True  OK
+  spiky            train   X=(28, 1, 500)  y=(28,)  attribs=(28, 1, 500)  nan_free=True  OK
+STATUS: OK
+
+======================================================================
+STEP 5: qualitative plots
+======================================================================
+  high_frequency: plotted example 0 of 28 train samples (tslength=250)
+  short_rough: plotted example 0 of 28 train samples (tslength=250)
+  smooth: plotted example 0 of 28 train samples (tslength=500)
+  spiky: plotted example 0 of 28 train samples (tslength=500)
+  saved -> /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/smoke_test_outputs/qualitative_all_clusters.png
+STATUS: OK (inspect the PNG -- this is the check nothing numeric replaces)
+
+======================================================================
+SUMMARY
+======================================================================
+  Tier A bit-exact reproduction: PASS
+  dataset_io round-trip:          PASS
+  qualitative plot:                /home/mcloue/masters/semester-3/hydra_saliency_testing/HYDRA-Saliency/scripts/synthetic_dataset_generation/smoke_test_outputs/qualitative_all_clusters.png
+
+  Parameter recovery (noiseless, from Step 2):
+    high_frequency   recovery_corr=0.9984
+    short_rough      recovery_corr=0.9995
+    smooth           recovery_corr=0.9991
+    spiky            slot_accuracy=0.9900

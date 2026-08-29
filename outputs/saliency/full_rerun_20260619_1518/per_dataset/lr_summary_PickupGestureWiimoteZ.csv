@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,34,-0.006232363105386114,-0.0007900045369721111,0.0,0.68,PickupGestureWiimoteZ,LR
+0.05,random,global_mean,34,0.19412017056998843,0.03552922918981703,0.058823529411764705,0.68,PickupGestureWiimoteZ,LR
+0.05,top,global_mean,34,1.7522824201860663,0.2834842340842318,0.4117647058823529,0.68,PickupGestureWiimoteZ,LR
+0.1,bottom,global_mean,34,0.0026594088299122178,2.2019649942439915e-05,0.0,0.68,PickupGestureWiimoteZ,LR
+0.1,random,global_mean,34,0.31275530900715104,0.05632018540477181,0.047058823529411764,0.68,PickupGestureWiimoteZ,LR
+0.1,top,global_mean,34,2.31403129607863,0.3835193958941683,0.5,0.68,PickupGestureWiimoteZ,LR
+0.2,bottom,global_mean,34,-0.05196104872517253,-0.0038130372794804124,0.0,0.68,PickupGestureWiimoteZ,LR
+0.2,random,global_mean,34,0.5632265889680873,0.10710565606605896,0.11764705882352941,0.68,PickupGestureWiimoteZ,LR
+0.2,top,global_mean,34,3.365296196114219,0.5599897972333693,0.6470588235294118,0.68,PickupGestureWiimoteZ,LR

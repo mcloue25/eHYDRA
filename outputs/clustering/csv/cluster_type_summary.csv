@@ -1,0 +1,5 @@
+cluster,n_datasets,dominant_type,dominant_type_count,dominant_type_percent,type_distribution
+0,8,SPECTRO,3,37.5,"{'SPECTRO': 3, 'DEVICE': 2, 'SIMULATED': 2, 'SENSOR': 1}"
+1,37,IMAGE,12,32.432432432432435,"{'IMAGE': 12, 'HAR': 8, 'SPECTRO': 4, 'SIMULATED': 3, 'SENSOR': 3, 'MOTION': 3, 'DEVICE': 2, 'EPG': 2}"
+2,42,IMAGE,15,35.714285714285715,"{'IMAGE': 15, 'SENSOR': 11, 'SIMULATED': 4, 'ECG': 4, 'HAR': 3, 'DEVICE': 3, 'TRAFFIC': 2}"
+3,40,HAR,10,25.0,"{'HAR': 10, 'IMAGE': 5, 'DEVICE': 5, 'SPECTRO': 5, 'ECG': 3, 'HEMODYNAMICS': 3, 'MOTION': 3, 'SENSOR': 2, 'EOG': 2, 'OTHER': 1, 'AUDIO': 1}"

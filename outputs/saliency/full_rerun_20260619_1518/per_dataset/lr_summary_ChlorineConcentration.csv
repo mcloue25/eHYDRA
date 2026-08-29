@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,-1.4538389643651226,-0.6661066207276294,0.18,0.7703125,ChlorineConcentration,LR
+0.05,random,global_mean,50,0.13336897501264505,0.07296992263662844,0.52,0.7703125,ChlorineConcentration,LR
+0.05,top,global_mean,50,4.501834051394463,0.7188031293965222,0.92,0.7703125,ChlorineConcentration,LR
+0.1,bottom,global_mean,50,-3.206024781489379,-0.43979644144645563,0.52,0.7703125,ChlorineConcentration,LR
+0.1,random,global_mean,50,0.5374237462845641,0.014232379078274878,0.604,0.7703125,ChlorineConcentration,LR
+0.1,top,global_mean,50,-5.686834572285007,-0.7270699763468218,0.26,0.7703125,ChlorineConcentration,LR
+0.2,bottom,global_mean,50,-3.9179413610994316,-0.6722562915741244,0.48,0.7703125,ChlorineConcentration,LR
+0.2,random,global_mean,50,0.3420901471809889,-0.008620448598179432,0.6,0.7703125,ChlorineConcentration,LR
+0.2,top,global_mean,50,3.2034351887379087,0.4078244564705663,0.7,0.7703125,ChlorineConcentration,LR

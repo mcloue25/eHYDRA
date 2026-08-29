@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,0.048417044099856206,0.007392307981509053,0.0,1.0,GunPointOldVersusYoung,LR
+0.05,random,global_mean,50,-0.12361938962479986,-0.018792551713092617,0.0,1.0,GunPointOldVersusYoung,LR
+0.05,top,global_mean,50,-0.6751510907546939,-0.10169193665002428,0.0,1.0,GunPointOldVersusYoung,LR
+0.1,bottom,global_mean,50,0.09990695650191313,0.015441745762195496,0.0,1.0,GunPointOldVersusYoung,LR
+0.1,random,global_mean,50,-0.23585155222789073,-0.03687534205048801,0.0,1.0,GunPointOldVersusYoung,LR
+0.1,top,global_mean,50,-1.2520509995963345,-0.18849345863523062,0.0,1.0,GunPointOldVersusYoung,LR
+0.2,bottom,global_mean,50,0.23001819651304242,0.036592644989088735,0.0,1.0,GunPointOldVersusYoung,LR
+0.2,random,global_mean,50,-0.5859529579982019,-0.08966439091771976,0.0,1.0,GunPointOldVersusYoung,LR
+0.2,top,global_mean,50,-2.1882526865511163,-0.330499606051325,0.0,1.0,GunPointOldVersusYoung,LR

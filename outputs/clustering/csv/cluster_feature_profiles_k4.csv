@@ -1,0 +1,5 @@
+cluster,log_series_length,log_n_instances,n_classes,mean_abs_diff,mean_abs_second_diff,spectral_entropy,spectral_centroid,low_freq_energy_ratio,spike_ratio,zero_crossing_rate,acf_lag1,acf_lag5,acf_lag10,skewness,kurtosis,normalized_centroid_separation
+0,0.565,-0.204,-0.383,2.806,2.998,2.02,3.097,-3.061,-0.143,2.19,-3.31,-1.809,-1.061,1.717,2.026,-0.273
+1,0.365,-0.137,-0.394,-0.624,-0.518,-0.734,-0.616,0.526,-0.804,-0.668,0.489,0.831,0.934,-0.412,-0.298,0.315
+2,-0.909,0.38,-0.281,0.404,0.208,-0.119,0.223,-0.129,-0.239,0.11,-0.058,-0.67,-0.872,-0.295,-0.229,-0.149
+3,0.492,-0.226,0.718,-0.398,-0.331,0.39,-0.277,0.255,0.998,0.063,0.263,0.29,0.257,0.34,0.108,-0.078

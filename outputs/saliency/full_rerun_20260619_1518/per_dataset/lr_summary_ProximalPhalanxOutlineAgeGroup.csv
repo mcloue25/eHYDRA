@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,0.23144169770717768,0.10391036606488935,0.22,0.8390243902439024,ProximalPhalanxOutlineAgeGroup,LR
+0.05,random,global_mean,50,0.9465177848902296,0.16750194693199405,0.5720000000000001,0.8390243902439024,ProximalPhalanxOutlineAgeGroup,LR
+0.05,top,global_mean,50,3.000838718688822,0.6285656833437764,0.74,0.8390243902439024,ProximalPhalanxOutlineAgeGroup,LR
+0.1,bottom,global_mean,50,-2.0653471380163695,-0.5231244165254368,0.86,0.8390243902439024,ProximalPhalanxOutlineAgeGroup,LR
+0.1,random,global_mean,50,0.8409152784180048,0.06479227292124716,0.696,0.8390243902439024,ProximalPhalanxOutlineAgeGroup,LR
+0.1,top,global_mean,50,-1.3490417517252618,-0.28353133472265646,0.86,0.8390243902439024,ProximalPhalanxOutlineAgeGroup,LR
+0.2,bottom,global_mean,50,-1.0356600578768953,0.20605904324443303,0.46,0.8390243902439024,ProximalPhalanxOutlineAgeGroup,LR
+0.2,random,global_mean,50,1.5805262344121227,0.2811367661150084,0.7559999999999999,0.8390243902439024,ProximalPhalanxOutlineAgeGroup,LR
+0.2,top,global_mean,50,5.252092230628084,0.72,0.86,0.8390243902439024,ProximalPhalanxOutlineAgeGroup,LR

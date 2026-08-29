@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,-24.071305492144823,-0.33130672106282283,0.44,0.74,EthanolLevel,LR
+0.05,random,global_mean,50,6.285071864136538,0.07260671114911352,0.6759999999999999,0.74,EthanolLevel,LR
+0.05,top,global_mean,50,-0.09767226476002619,-0.0929243765753742,0.7,0.74,EthanolLevel,LR
+0.1,bottom,global_mean,50,-34.77538334732365,-0.1266396599813074,0.78,0.74,EthanolLevel,LR
+0.1,random,global_mean,50,-7.902371899902678,0.029506579227049398,0.664,0.74,EthanolLevel,LR
+0.1,top,global_mean,50,-9.034373694762582,-0.12,0.68,0.74,EthanolLevel,LR
+0.2,bottom,global_mean,50,-200.08776916458103,-0.28360753741173905,0.36,0.74,EthanolLevel,LR
+0.2,random,global_mean,50,-28.143525212541974,0.008385209600343162,0.652,0.74,EthanolLevel,LR
+0.2,top,global_mean,50,61.60398978174166,-0.36,0.74,0.74,EthanolLevel,LR

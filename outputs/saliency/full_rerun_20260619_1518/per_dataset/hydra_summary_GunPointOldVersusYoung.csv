@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,0.12380306019220522,0.127356399196612,0.0,1.0,GunPointOldVersusYoung,HYDRA
+0.05,random,global_mean,50,0.07240904195355385,0.07214112762359973,0.0,1.0,GunPointOldVersusYoung,HYDRA
+0.05,top,global_mean,50,-0.1064875373514699,-0.11117658583459587,0.0,1.0,GunPointOldVersusYoung,HYDRA
+0.1,bottom,global_mean,50,0.144866943630839,0.14788718537187448,0.0,1.0,GunPointOldVersusYoung,HYDRA
+0.1,random,global_mean,50,0.02843497544088171,0.026820131164654214,0.0,1.0,GunPointOldVersusYoung,HYDRA
+0.1,top,global_mean,50,-0.1381122406109812,-0.14225806394165033,0.0,1.0,GunPointOldVersusYoung,HYDRA
+0.2,bottom,global_mean,50,0.10112316100853207,0.10329990058966519,0.0,1.0,GunPointOldVersusYoung,HYDRA
+0.2,random,global_mean,50,-0.10448573879439901,-0.10929835131701716,0.0,1.0,GunPointOldVersusYoung,HYDRA
+0.2,top,global_mean,50,-0.29372944447339905,-0.3048597500613878,0.0,1.0,GunPointOldVersusYoung,HYDRA

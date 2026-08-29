@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,0.16803925337042577,0.18017386707166316,0.1,0.7463768115942029,DistalPhalanxOutlineCorrect,HYDRA
+0.05,random,global_mean,50,0.26788985246879116,0.2487007929016395,0.15200000000000002,0.7463768115942029,DistalPhalanxOutlineCorrect,HYDRA
+0.05,top,global_mean,50,0.4798800847305326,0.39188819989009865,0.46,0.7463768115942029,DistalPhalanxOutlineCorrect,HYDRA
+0.1,bottom,global_mean,50,0.1835088909913157,0.1389636101802591,0.16,0.7463768115942029,DistalPhalanxOutlineCorrect,HYDRA
+0.1,random,global_mean,50,0.3711632226755469,0.3031191028498544,0.26,0.7463768115942029,DistalPhalanxOutlineCorrect,HYDRA
+0.1,top,global_mean,50,0.4744787232569658,0.376191992628556,0.44,0.7463768115942029,DistalPhalanxOutlineCorrect,HYDRA
+0.2,bottom,global_mean,50,0.19958543073089413,0.16961620120182225,0.12,0.7463768115942029,DistalPhalanxOutlineCorrect,HYDRA
+0.2,random,global_mean,50,0.5690526940113811,0.41526917829994664,0.48,0.7463768115942029,DistalPhalanxOutlineCorrect,HYDRA
+0.2,top,global_mean,50,0.7445761282131355,0.3702094905996603,0.66,0.7463768115942029,DistalPhalanxOutlineCorrect,HYDRA

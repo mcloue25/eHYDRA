@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,0.0664661004720873,0.011607673927251507,0.0,0.79,Trace,LR
+0.05,random,global_mean,50,0.7487412118523683,0.09872588388360494,0.22400000000000003,0.79,Trace,LR
+0.05,top,global_mean,50,1.3659394920058567,0.08,0.54,0.79,Trace,LR
+0.1,bottom,global_mean,50,0.2131371977269357,0.03546155107268122,0.12,0.79,Trace,LR
+0.1,random,global_mean,50,0.6997189427090464,0.08550469732287551,0.228,0.79,Trace,LR
+0.1,top,global_mean,50,2.1811991113119107,0.08,0.54,0.79,Trace,LR
+0.2,bottom,global_mean,50,0.4743091413753276,0.08439827073112051,0.04,0.79,Trace,LR
+0.2,random,global_mean,50,0.9728840784662952,0.11055181220359964,0.268,0.79,Trace,LR
+0.2,top,global_mean,50,3.0631857535802935,0.08010845089291518,0.54,0.79,Trace,LR

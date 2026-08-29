@@ -1,0 +1,4 @@
+dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
+Worms,real,0.05,0.05,60
+Worms,shuffled_labels,-0.13333333333333333,-0.25,60
+Worms,permuted_weights,0.0,0.0,60

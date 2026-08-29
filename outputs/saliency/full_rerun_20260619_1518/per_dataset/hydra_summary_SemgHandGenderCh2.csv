@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,0.25581468522847617,0.5522816553871296,0.24,0.83,SemgHandGenderCh2,HYDRA
+0.05,random,global_mean,50,0.28406163339897056,0.5320354498830177,0.26,0.83,SemgHandGenderCh2,HYDRA
+0.05,top,global_mean,50,0.13126286169423607,0.12245967858129425,0.14,0.83,SemgHandGenderCh2,HYDRA
+0.1,bottom,global_mean,50,0.4361378422927473,0.7109938488556731,0.46,0.83,SemgHandGenderCh2,HYDRA
+0.1,random,global_mean,50,0.5243608063235181,0.7053925792038609,0.496,0.83,SemgHandGenderCh2,HYDRA
+0.1,top,global_mean,50,0.19313009780162424,0.19783477472968056,0.3,0.83,SemgHandGenderCh2,HYDRA
+0.2,bottom,global_mean,50,0.461927689148225,0.5343105436316131,0.5,0.83,SemgHandGenderCh2,HYDRA
+0.2,random,global_mean,50,0.5525729621966061,0.6832081784411753,0.532,0.83,SemgHandGenderCh2,HYDRA
+0.2,top,global_mean,50,0.19239979224933254,0.14216014894877171,0.28,0.83,SemgHandGenderCh2,HYDRA

@@ -1,0 +1,61 @@
+{
+  "cluster_key": "spiky",
+  "cluster_name": "Spiky / multi-class",
+  "generator_class": "SpikeMultiClassGenerator",
+  "config": {
+    "cluster_key": "spiky",
+    "cluster_name": "Spiky / multi-class",
+    "tslength": 500,
+    "onset": 100,
+    "window_length": 200,
+    "n_tiers": 3,
+    "min_duration": 10,
+    "max_duration": 175,
+    "drift_rate": 0.029,
+    "burst_noise_std": 0.2,
+    "bg_noise_std": 0.15,
+    "duration_readout_len": 15,
+    "readout_margin": 10,
+    "tier_bounds": [
+      [
+        10.0,
+        65.0
+      ],
+      [
+        65.0,
+        120.0
+      ],
+      [
+        120.0,
+        175.0
+      ]
+    ],
+    "tier_centers": [
+      37.5,
+      92.5,
+      147.5
+    ]
+  },
+  "calibration_source": {
+    "cluster_key": "spiky",
+    "cluster_name": "Spiky / multi-class",
+    "tslength": 500,
+    "onset": 100,
+    "n_tiers": 3,
+    "min_duration": 10,
+    "max_duration": 175,
+    "drift_rate": 0.029,
+    "burst_noise_std": 0.2,
+    "bg_noise_std": 0.15,
+    "duration_readout_len": 15,
+    "readout_margin": 10,
+    "_source_n_classes_median": 10.0,
+    "_source_mean_abs_diff_median": 0.0735500578407768,
+    "_source_mean_abs_second_diff_median": 0.0533350441413365
+  },
+  "n_samples_total": 40,
+  "seed": 42,
+  "test_fraction": 0.3,
+  "split": "test",
+  "n_samples_split": 12
+}

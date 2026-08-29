@@ -1,0 +1,7 @@
+cluster,cluster_name,method,mean_aucs_top,mean_f1s,n_datasets
+1,Smooth / low-complexity,shapley_sampling,0.38510715022693043,0.3776294603766205,1
+1,Smooth / low-complexity,hydra,0.36519126170489763,0.3357727286089958,1
+1,Smooth / low-complexity,feature_ablation,0.29560721291100955,0.3056785242966743,1
+1,Smooth / low-complexity,tshap_centroid,0.26445167816640647,0.2753629230386867,1
+1,Smooth / low-complexity,tshap_zero,0.24926795672420193,0.2779957096451967,1
+1,Smooth / low-complexity,mrsqm,0.04275675919834956,-0.37273608957603277,1

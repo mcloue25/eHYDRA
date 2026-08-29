@@ -1,0 +1,4 @@
+variant,mean_flip_rate_top_minus_random,mean_flip_rate_top_minus_bottom,n_datasets
+permuted_weights,0.029385964912280713,0.06842105263157895,38
+real,0.05833333333333335,0.09999999999999999,38
+shuffled_labels,0.033963278293773665,0.024636652906776746,38

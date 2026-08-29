@@ -1,0 +1,4 @@
+dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
+ScreenType,real,0.1,0.15,60
+ScreenType,shuffled_labels,-0.14999999999999997,-0.2,60
+ScreenType,permuted_weights,0.05000000000000002,0.05000000000000002,60

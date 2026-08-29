@@ -1,0 +1,43 @@
+{
+  "cluster_key": "high_frequency",
+  "cluster_name": "High-frequency / high-curvature",
+  "generator_class": "FrequencyBurstGenerator",
+  "config": {
+    "cluster_key": "high_frequency",
+    "cluster_name": "High-frequency / high-curvature",
+    "tslength": 250,
+    "splength": 50,
+    "sp_idx": [
+      50,
+      150
+    ],
+    "min_f": 39.8,
+    "max_f": 60.6,
+    "f_base": 0.0,
+    "wave": "sine",
+    "noise_std": 0.15,
+    "clf_threshold": 100.4,
+    "legacy_rng": false
+  },
+  "calibration_source": {
+    "cluster_key": "high_frequency",
+    "cluster_name": "High-frequency / high-curvature",
+    "tslength": 250,
+    "splength": 50,
+    "min_f": 39.8,
+    "max_f": 60.6,
+    "f_base": 0.0,
+    "wave": "sine",
+    "noise_std": 0.15,
+    "_source_spectral_centroid_quantiles": {
+      "0.25": 0.1591924996767948,
+      "0.5": 0.20287443988926107,
+      "0.75": 0.24238334289315366
+    }
+  },
+  "n_samples_total": 40,
+  "seed": 42,
+  "test_fraction": 0.3,
+  "split": "test",
+  "n_samples_split": 12
+}

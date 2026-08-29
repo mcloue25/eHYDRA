@@ -1,0 +1,4 @@
+dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
+SmoothSubspace,real,0.08333333333333334,0.1,60
+SmoothSubspace,shuffled_labels,0.25,0.25,60
+SmoothSubspace,permuted_weights,0.03333333333333334,-0.05,60

@@ -1,0 +1,29 @@
+cluster,cluster_name,method,mean_aucs_top,mean_f1s,n_datasets
+0,High-frequency / high-curvature,hydra,0.2846464649089756,-0.41125060232141014,8
+0,High-frequency / high-curvature,tshap_centroid,0.24180249287566707,-0.44943933517572443,8
+0,High-frequency / high-curvature,tshap_train,0.2168956499545532,-0.19513152580984672,8
+0,High-frequency / high-curvature,tshap_zero,0.2091255769244187,-0.21374391309930604,8
+0,High-frequency / high-curvature,shapley_sampling,0.1971682018643269,-0.15731641572506813,8
+0,High-frequency / high-curvature,feature_ablation,0.17065814424392348,-0.6511271458326309,8
+0,High-frequency / high-curvature,mrsqm,0.14605842131916394,-0.5854645812452677,8
+1,Smooth / low-complexity,tshap_train,0.5289677551546578,0.34446033978094476,10
+1,Smooth / low-complexity,tshap_centroid,0.5272998072590939,0.3015958611846788,10
+1,Smooth / low-complexity,shapley_sampling,0.5022978440886259,0.261207712965129,10
+1,Smooth / low-complexity,tshap_zero,0.4728432352384378,0.2304944756509521,10
+1,Smooth / low-complexity,feature_ablation,0.4636250128059634,0.1986114517156209,10
+1,Smooth / low-complexity,hydra,0.4503181644524116,0.012767519204524206,10
+1,Smooth / low-complexity,mrsqm,0.3752790213361344,0.03102722336282281,10
+2,Short / moderately rough,tshap_train,0.3895683639207343,0.11389445379718985,10
+2,Short / moderately rough,tshap_centroid,0.3496801438445518,-0.004292840851992036,10
+2,Short / moderately rough,tshap_zero,0.34191282522309124,0.18212361791759554,10
+2,Short / moderately rough,feature_ablation,0.3411319485517701,-0.2300192577449501,10
+2,Short / moderately rough,shapley_sampling,0.3326661119412267,-0.20379056470882045,10
+2,Short / moderately rough,hydra,0.27772724122548026,-0.4122280226518833,10
+2,Short / moderately rough,mrsqm,0.20110816313467836,-0.4215470083410476,10
+3,Spiky / multi-class,tshap_train,0.49290886576682225,0.293633155854406,10
+3,Spiky / multi-class,tshap_centroid,0.4670616379140568,0.18571435824241356,10
+3,Spiky / multi-class,shapley_sampling,0.42997530152584396,0.08526512768304181,10
+3,Spiky / multi-class,tshap_zero,0.42192210291862897,0.32685025953598085,10
+3,Spiky / multi-class,feature_ablation,0.42155796884682617,0.11822332246530029,10
+3,Spiky / multi-class,hydra,0.38387970024560497,-0.04626077631092834,10
+3,Spiky / multi-class,mrsqm,0.3052926791350535,-0.24414462584147034,10

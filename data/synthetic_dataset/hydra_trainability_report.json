@@ -1,0 +1,50 @@
+[
+  {
+    "cluster_key": "high_frequency",
+    "n_train": 210,
+    "n_test": 90,
+    "tslength": 250,
+    "n_classes": 2,
+    "test_accuracy": 0.9888888888888889,
+    "test_macro_f1": 0.9888765294771968,
+    "min_accuracy_gate": 0.9,
+    "passed": true,
+    "saved_model_path": "/home/mcloue/masters/semester-3/HYDRA-Saliency/scripts/pipeline/../../data/synthetic_dataset/trained_models/high_frequency_hydra_model.pkl"
+  },
+  {
+    "cluster_key": "short_rough",
+    "n_train": 210,
+    "n_test": 90,
+    "tslength": 250,
+    "n_classes": 2,
+    "test_accuracy": 0.9777777777777777,
+    "test_macro_f1": 0.9777667984189724,
+    "min_accuracy_gate": 0.9,
+    "passed": true,
+    "saved_model_path": "/home/mcloue/masters/semester-3/HYDRA-Saliency/scripts/pipeline/../../data/synthetic_dataset/trained_models/short_rough_hydra_model.pkl"
+  },
+  {
+    "cluster_key": "smooth",
+    "n_train": 210,
+    "n_test": 90,
+    "tslength": 500,
+    "n_classes": 2,
+    "test_accuracy": 0.9555555555555556,
+    "test_macro_f1": 0.9555335968379447,
+    "min_accuracy_gate": 0.9,
+    "passed": true,
+    "saved_model_path": "/home/mcloue/masters/semester-3/HYDRA-Saliency/scripts/pipeline/../../data/synthetic_dataset/trained_models/smooth_hydra_model.pkl"
+  },
+  {
+    "cluster_key": "spiky",
+    "n_train": 210,
+    "n_test": 90,
+    "tslength": 500,
+    "n_classes": 3,
+    "test_accuracy": 0.9444444444444444,
+    "test_macro_f1": 0.941991341991342,
+    "min_accuracy_gate": 0.8,
+    "passed": true,
+    "saved_model_path": "/home/mcloue/masters/semester-3/HYDRA-Saliency/scripts/pipeline/../../data/synthetic_dataset/trained_models/spiky_hydra_model.pkl"
+  }
+]

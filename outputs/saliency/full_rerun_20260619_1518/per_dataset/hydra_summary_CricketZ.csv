@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,0.0384195783226898,0.14494225827810125,0.02,0.8,CricketZ,HYDRA
+0.05,random,global_mean,50,0.08019186995991942,0.2228924549838269,0.06,0.8,CricketZ,HYDRA
+0.05,top,global_mean,50,0.2764993522701297,0.6282975856740743,0.1,0.8,CricketZ,HYDRA
+0.1,bottom,global_mean,50,0.04301803422344257,0.14938164176904942,0.0,0.8,CricketZ,HYDRA
+0.1,random,global_mean,50,0.1834156699355436,0.4209726223261106,0.132,0.8,CricketZ,HYDRA
+0.1,top,global_mean,50,0.5050143704344094,0.80398092400806,0.3,0.8,CricketZ,HYDRA
+0.2,bottom,global_mean,50,0.07997222290154911,0.23374491115087237,0.1,0.8,CricketZ,HYDRA
+0.2,random,global_mean,50,0.3417009669235931,0.52158458648772,0.344,0.8,CricketZ,HYDRA
+0.2,top,global_mean,50,0.7945834950800603,0.7670492012073246,0.74,0.8,CricketZ,HYDRA

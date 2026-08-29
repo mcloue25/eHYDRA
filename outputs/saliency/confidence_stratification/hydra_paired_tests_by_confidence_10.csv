@@ -1,0 +1,13 @@
+model,confidence_bin,fraction,metric,comparison,mean_diff,top_greater_count,wilcoxon_p
+HYDRA,low_confidence,0.1,Flip rate,Top > Random,0.08526701930495588,71/99,2.3129198682852896e-06
+HYDRA,low_confidence,0.1,Flip rate,Top > Bottom,0.16777589227905895,71/88,8.273402283011378e-09
+HYDRA,low_confidence,0.1,Bounded score drop,Top > Random,0.037393820967223254,63/114,0.0486317578729782
+HYDRA,low_confidence,0.1,Bounded score drop,Top > Bottom,0.24909151419935285,83/117,2.9637543336001586e-07
+HYDRA,medium_confidence,0.1,Flip rate,Top > Random,0.10509175521430385,71/98,6.975522512055853e-08
+HYDRA,medium_confidence,0.1,Flip rate,Top > Bottom,0.1699668356147193,67/76,2.726271181621621e-10
+HYDRA,medium_confidence,0.1,Bounded score drop,Top > Random,0.13454198000869774,91/126,6.131174635696649e-08
+HYDRA,medium_confidence,0.1,Bounded score drop,Top > Bottom,0.28850337937622084,98/126,1.7038458303282289e-12
+HYDRA,high_confidence,0.1,Flip rate,Top > Random,0.07833550530801597,39/60,0.00017568030576790782
+HYDRA,high_confidence,0.1,Flip rate,Top > Bottom,0.09709565597304187,40/47,4.91053399142546e-05
+HYDRA,high_confidence,0.1,Bounded score drop,Top > Random,0.12689929303618838,90/121,2.1172340356659238e-07
+HYDRA,high_confidence,0.1,Bounded score drop,Top > Bottom,0.22643208798958073,96/121,3.5783861803535354e-10

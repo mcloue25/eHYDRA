@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,0.09284042896135186,0.187042542232526,0.02,0.88,LargeKitchenAppliances,HYDRA
+0.05,random,global_mean,50,0.07104132934918563,0.08378375035845505,0.008,0.88,LargeKitchenAppliances,HYDRA
+0.05,top,global_mean,50,-0.08508696055168906,-0.07728795115455073,0.0,0.88,LargeKitchenAppliances,HYDRA
+0.1,bottom,global_mean,50,0.044224554453695844,0.10223380398139702,0.02,0.88,LargeKitchenAppliances,HYDRA
+0.1,random,global_mean,50,-0.01013151783828156,-0.03183986796026364,0.004,0.88,LargeKitchenAppliances,HYDRA
+0.1,top,global_mean,50,-0.31745965826710654,-0.40525520980301194,0.02,0.88,LargeKitchenAppliances,HYDRA
+0.2,bottom,global_mean,50,-0.06037317700842517,-0.11910861865338901,0.04,0.88,LargeKitchenAppliances,HYDRA
+0.2,random,global_mean,50,-0.14817946564355464,-0.23280323214879123,0.0,0.88,LargeKitchenAppliances,HYDRA
+0.2,top,global_mean,50,-0.34725140493450624,-0.45059165047108607,0.02,0.88,LargeKitchenAppliances,HYDRA

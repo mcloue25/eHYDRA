@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,-0.019145340042547688,-0.0012567103830865558,0.0,1.0,InsectEPGSmallTrain,LR
+0.05,random,global_mean,50,-0.0010671028623341528,-5.795561955523314e-05,0.0,1.0,InsectEPGSmallTrain,LR
+0.05,top,global_mean,50,-0.0006212643249936889,-2.4642078445282363e-05,0.0,1.0,InsectEPGSmallTrain,LR
+0.1,bottom,global_mean,50,-0.03820263678863057,-0.002507421633658443,0.0,1.0,InsectEPGSmallTrain,LR
+0.1,random,global_mean,50,-0.0010233731202439736,-7.338999940925411e-05,0.0,1.0,InsectEPGSmallTrain,LR
+0.1,top,global_mean,50,-0.0027504417270102976,-0.00014908548612064184,0.0,1.0,InsectEPGSmallTrain,LR
+0.2,bottom,global_mean,50,-0.07493693321934515,-0.004920754478035429,0.0,1.0,InsectEPGSmallTrain,LR
+0.2,random,global_mean,50,-0.00451555630537338,-0.0003240578226837577,0.0,1.0,InsectEPGSmallTrain,LR
+0.2,top,global_mean,50,-0.02892664092088644,-0.001850849921807272,0.0,1.0,InsectEPGSmallTrain,LR

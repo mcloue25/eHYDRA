@@ -1,0 +1,4 @@
+dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
+Haptics,real,0.18333333333333332,0.14999999999999997,60
+Haptics,shuffled_labels,0.01666666666666672,0.04999999999999999,60
+Haptics,permuted_weights,0.2833333333333333,0.2,60

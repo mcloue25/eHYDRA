@@ -1,0 +1,17 @@
+perturbation,perturbation_label,fraction,metric,comparison,mean_diff,top_greater_count,wilcoxon_p
+blur,blur,0.1,Flip rate,Top > Random,0.014518543352782482,46/83,0.003424310453170608
+blur,blur,0.1,Flip rate,Top > Bottom,0.019656018894300145,41/65,0.0030177092717526854
+blur,blur,0.1,Bounded score drop,Top > Random,0.03247722058054776,78/128,0.010466699873166755
+blur,blur,0.1,Bounded score drop,Top > Bottom,0.054976512225529836,69/128,0.00810152407337918
+global_mean,Global mean,0.1,Flip rate,Top > Random,0.08830674367902629,88/117,1.1186281677817146e-09
+global_mean,Global mean,0.1,Flip rate,Top > Bottom,0.12785454873855012,83/103,1.3027409225044528e-10
+global_mean,Global mean,0.1,Bounded score drop,Top > Random,0.11524812862453471,94/128,4.263801841453146e-08
+global_mean,Global mean,0.1,Bounded score drop,Top > Bottom,0.21445871840345795,98/128,1.4458592440881472e-10
+linear_interpolation,Linear interpolation,0.1,Flip rate,Top > Random,0.07112929861503231,73/110,1.1639630371463684e-06
+linear_interpolation,Linear interpolation,0.1,Flip rate,Top > Bottom,0.0962537398440931,74/102,8.868106175264548e-08
+linear_interpolation,Linear interpolation,0.1,Bounded score drop,Top > Random,0.11663109113217486,101/128,3.0939666337013973e-10
+linear_interpolation,Linear interpolation,0.1,Bounded score drop,Top > Bottom,0.1732716703156925,98/128,6.43391676758045e-10
+local_mean,Local mean,0.1,Flip rate,Top > Random,0.09123641745482779,84/112,1.3553666776303537e-10
+local_mean,Local mean,0.1,Flip rate,Top > Bottom,0.13054149070283583,87/108,8.207566778233003e-12
+local_mean,Local mean,0.1,Bounded score drop,Top > Random,0.1192627740705772,91/128,8.769620715529289e-10
+local_mean,Local mean,0.1,Bounded score drop,Top > Bottom,0.18854496350140215,95/128,5.226579919454908e-10

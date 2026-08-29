@@ -1,0 +1,4 @@
+dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
+ArrowHead,real,-0.09999999999999999,0.0,60
+ArrowHead,shuffled_labels,0.0,0.0,60
+ArrowHead,permuted_weights,-0.04999999999999999,0.05,60

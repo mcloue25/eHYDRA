@@ -1,0 +1,7 @@
+file,rows,columns,datasets,models
+hydra_samples.csv,56124,12,128,HYDRA
+hydra_summary.csv,1152,8,128,HYDRA
+lr_samples.csv,125685,12,128,LR
+lr_summary.csv,1152,8,128,LR
+mrsqm_samples.csv,55494,12,127,MrSQM
+mrsqm_summary.csv,1143,8,127,MrSQM

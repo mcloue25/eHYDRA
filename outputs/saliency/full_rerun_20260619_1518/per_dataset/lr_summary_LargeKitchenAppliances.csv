@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,-0.01252040995885335,-0.0057476883718134975,0.0,0.392,LargeKitchenAppliances,LR
+0.05,random,global_mean,50,0.09416319686569205,-0.029623026861347643,0.036000000000000004,0.392,LargeKitchenAppliances,LR
+0.05,top,global_mean,50,0.06952591022646876,0.009218542370396527,0.04,0.392,LargeKitchenAppliances,LR
+0.1,bottom,global_mean,50,-0.5002571043210969,-0.18340895907009475,0.0,0.392,LargeKitchenAppliances,LR
+0.1,random,global_mean,50,1.0451874112252602,0.013168378873483195,0.048,0.392,LargeKitchenAppliances,LR
+0.1,top,global_mean,50,0.3429798673128861,0.06504911158957272,0.04,0.392,LargeKitchenAppliances,LR
+0.2,bottom,global_mean,50,2.6371256423487734,-0.38722545871478803,0.0,0.392,LargeKitchenAppliances,LR
+0.2,random,global_mean,50,1.0869145482429405,0.041655001427695966,0.06,0.392,LargeKitchenAppliances,LR
+0.2,top,global_mean,50,0.7128107641815763,0.1761497700839922,0.1,0.392,LargeKitchenAppliances,LR

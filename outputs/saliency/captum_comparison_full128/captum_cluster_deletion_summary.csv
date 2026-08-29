@@ -1,0 +1,25 @@
+cluster,cluster_name,method,mean_aucs_top,mean_f1s,n_datasets
+0,High-frequency / high-curvature,hydra,0.28464648109676255,-0.4112506185780845,8
+0,High-frequency / high-curvature,tshap_centroid,0.2418025092180513,-0.44943889590992,8
+0,High-frequency / high-curvature,tshap_zero,0.2091255694473953,-0.21374391269275259,8
+0,High-frequency / high-curvature,shapley_sampling,0.1971682145832482,-0.15731653810367213,8
+0,High-frequency / high-curvature,feature_ablation,0.17065814402305693,-0.6511276196462872,8
+0,High-frequency / high-curvature,mrsqm,0.14605841092409172,-0.585463912584346,8
+1,Smooth / low-complexity,tshap_centroid,0.390371793011036,0.03491716088865949,37
+1,Smooth / low-complexity,tshap_zero,0.3407604060353258,-0.06432345382393208,37
+1,Smooth / low-complexity,shapley_sampling,0.33465767957405573,-0.12998434526611127,37
+1,Smooth / low-complexity,feature_ablation,0.30439360261793785,-0.44108568495341133,37
+1,Smooth / low-complexity,hydra,0.2583628286547811,-0.5445031588731809,37
+1,Smooth / low-complexity,mrsqm,0.2420945885034002,-0.24138007288568844,37
+2,Short / moderately rough,feature_ablation,0.4235587149857222,0.013001200069405068,42
+2,Short / moderately rough,shapley_sampling,0.4205717111752991,-0.04715668462841916,42
+2,Short / moderately rough,tshap_centroid,0.42043825755707825,0.00894018012031356,42
+2,Short / moderately rough,hydra,0.3898566861123222,-0.18132793153205343,42
+2,Short / moderately rough,tshap_zero,0.37973577919388396,0.09444990905750134,42
+2,Short / moderately rough,mrsqm,0.2491012226656605,-0.22960650776328742,42
+3,Spiky / multi-class,tshap_centroid,0.44192144820603707,0.11203180906716267,41
+3,Spiky / multi-class,hydra,0.42848119619718233,-0.008885866863466315,41
+3,Spiky / multi-class,tshap_zero,0.4065490692735884,0.24409644173106296,41
+3,Spiky / multi-class,feature_ablation,0.38997968084178886,0.03303131523323786,41
+3,Spiky / multi-class,shapley_sampling,0.3834989052156331,-0.005761770284043443,41
+3,Spiky / multi-class,mrsqm,0.26843767522381323,-0.23699422151116697,41

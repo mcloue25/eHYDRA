@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,-0.004586522773662294,-0.0035082802371385045,0.0,0.990506329113924,GunPointMaleVersusFemale,LR
+0.05,random,global_mean,50,-0.3396065531510397,-0.12116931246295662,0.0,0.990506329113924,GunPointMaleVersusFemale,LR
+0.05,top,global_mean,50,-1.9631589147684338,-0.5935310658564874,0.0,0.990506329113924,GunPointMaleVersusFemale,LR
+0.1,bottom,global_mean,50,0.10623937534104021,0.03311299532615046,0.0,0.990506329113924,GunPointMaleVersusFemale,LR
+0.1,random,global_mean,50,-0.64449171273936,-0.18789527050664373,0.004,0.990506329113924,GunPointMaleVersusFemale,LR
+0.1,top,global_mean,50,-2.9028543463069307,-0.8071194814523828,0.0,0.990506329113924,GunPointMaleVersusFemale,LR
+0.2,bottom,global_mean,50,0.3963216078225781,0.08092815531633393,0.0,0.990506329113924,GunPointMaleVersusFemale,LR
+0.2,random,global_mean,50,-0.5524947559433104,-0.12959527971888998,0.02,0.990506329113924,GunPointMaleVersusFemale,LR
+0.2,top,global_mean,50,-3.101692340868107,-0.8415311470706301,0.0,0.990506329113924,GunPointMaleVersusFemale,LR

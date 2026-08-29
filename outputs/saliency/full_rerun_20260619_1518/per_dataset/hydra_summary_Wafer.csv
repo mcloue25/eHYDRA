@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,-0.021604076641116562,-0.022131926922383166,0.0,1.0,Wafer,HYDRA
+0.05,random,global_mean,50,0.06017611607121246,0.06005526990385511,0.0,1.0,Wafer,HYDRA
+0.05,top,global_mean,50,0.12546086413266305,0.12420557004723419,0.0,1.0,Wafer,HYDRA
+0.1,bottom,global_mean,50,-0.06494779139414003,-0.0654533573744155,0.0,1.0,Wafer,HYDRA
+0.1,random,global_mean,50,0.03465297770517122,0.03313519915843052,0.0,1.0,Wafer,HYDRA
+0.1,top,global_mean,50,0.16698214281266374,0.16384179082431616,0.0,1.0,Wafer,HYDRA
+0.2,bottom,global_mean,50,-0.13956516823987583,-0.14418791576595005,0.0,1.0,Wafer,HYDRA
+0.2,random,global_mean,50,0.05746177315803906,0.054434894742157375,0.0,1.0,Wafer,HYDRA
+0.2,top,global_mean,50,0.2735369728190375,0.270654175892145,0.0,1.0,Wafer,HYDRA

@@ -1,0 +1,10 @@
+fraction,mode,perturbation,n_samples,mean_score_drop,mean_bounded_relative_score_drop,flip_rate,base_accuracy,dataset,model
+0.05,bottom,global_mean,50,0.069770153199961,0.00733872360772379,0.2,0.8336,SwedishLeaf,LR
+0.05,random,global_mean,50,0.3648905069996986,0.04415146338352011,0.16400000000000003,0.8336,SwedishLeaf,LR
+0.05,top,global_mean,50,0.7097921217900689,0.06699381595999965,0.36,0.8336,SwedishLeaf,LR
+0.1,bottom,global_mean,50,-0.2506135489293475,-0.02776823378531891,0.18,0.8336,SwedishLeaf,LR
+0.1,random,global_mean,50,1.2760769751518681,0.1323156744122526,0.344,0.8336,SwedishLeaf,LR
+0.1,top,global_mean,50,2.9157611781384007,0.2371546257125959,0.64,0.8336,SwedishLeaf,LR
+0.2,bottom,global_mean,50,1.7110083002430552,0.15305971733255572,0.62,0.8336,SwedishLeaf,LR
+0.2,random,global_mean,50,2.1280559868777327,0.20898011624815044,0.552,0.8336,SwedishLeaf,LR
+0.2,top,global_mean,50,6.295429614049123,0.43285867176837717,0.8,0.8336,SwedishLeaf,LR

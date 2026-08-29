@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-ProximalPhalanxTW,real,-0.19999999999999998,-0.6,60
-ProximalPhalanxTW,shuffled_labels,-0.033333333333333326,-0.19999999999999998,60
-ProximalPhalanxTW,permuted_weights,-0.35,-0.2,60

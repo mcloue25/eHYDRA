@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-MoteStrain,real,0.16666666666666669,0.15000000000000002,60
-MoteStrain,shuffled_labels,-0.16666666666666666,-0.25,60
-MoteStrain,permuted_weights,-0.03333333333333333,0.0,60

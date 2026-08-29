@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-SmallKitchenAppliances,real,0.4666666666666667,0.7,60
-SmallKitchenAppliances,shuffled_labels,0.01666666666666667,-0.05,60
-SmallKitchenAppliances,permuted_weights,0.41666666666666674,0.55,60

@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-SemgHandSubjectCh2,real,-0.03333333333333333,0.0,60
-SemgHandSubjectCh2,shuffled_labels,0.08333333333333326,0.0,60
-SemgHandSubjectCh2,permuted_weights,-0.03333333333333333,0.0,60

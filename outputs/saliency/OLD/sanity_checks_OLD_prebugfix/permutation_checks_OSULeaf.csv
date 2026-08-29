@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-OSULeaf,real,0.05,0.05,60
-OSULeaf,shuffled_labels,0.03921568627450983,0.1764705882352941,51
-OSULeaf,permuted_weights,0.05,0.05,60

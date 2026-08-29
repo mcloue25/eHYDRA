@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-Trace,real,0.08333333333333336,0.15000000000000002,60
-Trace,shuffled_labels,-0.018518518518518545,-0.05555555555555558,54
-Trace,permuted_weights,0.08333333333333336,0.2,60

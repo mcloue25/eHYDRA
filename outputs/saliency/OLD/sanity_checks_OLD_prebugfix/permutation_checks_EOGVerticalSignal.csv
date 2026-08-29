@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-EOGVerticalSignal,real,-0.06666666666666665,-0.15000000000000002,60
-EOGVerticalSignal,shuffled_labels,-0.016666666666666607,-0.04999999999999993,60
-EOGVerticalSignal,permuted_weights,-0.06666666666666665,-0.20000000000000007,60

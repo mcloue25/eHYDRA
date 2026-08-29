@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-WordSynonyms,real,0.06666666666666668,0.1,60
-WordSynonyms,shuffled_labels,0.0,0.1,60
-WordSynonyms,permuted_weights,-0.033333333333333326,-0.05000000000000002,60

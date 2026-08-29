@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-GunPointOldVersusYoung,real,0.0,0.0,60
-GunPointOldVersusYoung,shuffled_labels,0.1166666666666667,0.4,60
-GunPointOldVersusYoung,permuted_weights,0.0,0.0,60

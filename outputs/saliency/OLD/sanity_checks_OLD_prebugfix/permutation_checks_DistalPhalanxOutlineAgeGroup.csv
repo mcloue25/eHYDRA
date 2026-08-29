@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-DistalPhalanxOutlineAgeGroup,real,0.1833333333333334,0.4,60
-DistalPhalanxOutlineAgeGroup,shuffled_labels,0.21666666666666667,0.39999999999999997,60
-DistalPhalanxOutlineAgeGroup,permuted_weights,-0.21666666666666665,-0.05000000000000002,60

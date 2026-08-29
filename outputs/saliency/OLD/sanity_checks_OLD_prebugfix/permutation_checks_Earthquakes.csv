@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-Earthquakes,real,0.05,0.05,60
-Earthquakes,shuffled_labels,0.0,0.0,60
-Earthquakes,permuted_weights,0.05,0.0,60

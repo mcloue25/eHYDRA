@@ -1,9 +1,0 @@
-perturbation,perturbation_label,comparison,rate_pct,n_datasets
-blur,blur,top_gt_random_pct,40.2,127
-blur,blur,top_gt_bottom_pct,37.0,127
-global_mean,Global mean,top_gt_random_pct,70.1,127
-global_mean,Global mean,top_gt_bottom_pct,72.4,127
-linear_interpolation,Linear interpolation,top_gt_random_pct,59.8,127
-linear_interpolation,Linear interpolation,top_gt_bottom_pct,61.4,127
-local_mean,Local mean,top_gt_random_pct,73.2,127
-local_mean,Local mean,top_gt_bottom_pct,74.0,127

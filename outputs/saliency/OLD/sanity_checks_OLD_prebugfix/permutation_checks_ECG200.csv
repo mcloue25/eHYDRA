@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-ECG200,real,-0.08333333333333333,0.0,60
-ECG200,shuffled_labels,0.06666666666666668,0.0,60
-ECG200,permuted_weights,-0.033333333333333326,0.05,60

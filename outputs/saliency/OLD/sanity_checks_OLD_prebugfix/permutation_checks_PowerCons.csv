@@ -1,4 +1,0 @@
-dataset,variant,flip_rate_top_minus_random,flip_rate_top_minus_bottom,n_rows
-PowerCons,real,0.0,0.0,60
-PowerCons,shuffled_labels,-0.04999999999999999,0.0,60
-PowerCons,permuted_weights,0.05,0.05,60

@@ -687,19 +687,14 @@ python3 scripts/pipeline/train_hydra_on_synthetic.py --cluster all --save-models
 ```
 
 TODO (Need to add flag tables for the following:):
-> **Documentation gap:** the scripts that actually run the eHYDRA-vs-Phi and
-> eHYDRA-vs-TSHAP synthetic ground-truth comparisons:
+> **Documentation gap:** the scripts that actually run the eHYDRA-vs-Phi and eHYDRA-vs-TSHAP synthetic ground-truth comparisons:
 > `scripts/analysis/evaluate_synthetic_ground_truth.py`,
 > `scripts/analysis/evaluate_tshap_comparison.py`,
 > `scripts/analysis/evaluate_random_baseline.py`,
 > `scripts/analysis/summarize_ground_truth_results.py`,
 > `scripts/analysis/compare_methods_significance.py`,
 > `scripts/plotting/plot_ground_truth_comparison.py` exist in the repo
-> (see [Repository Structure](#repository-structure)) but don't yet have
-> flag tables written up in this section, unlike the rest of this document.
-> Filling these in, in the same style as the sections above, is the next
-> thing to do here — flag if you'd like them added now rather than left as
-> a TODO.
+> (see [Repository Structure](#repository-structure)) but I haven't added flag tables for this section but they do exist in the commad execution order.
 
 
 ---

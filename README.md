@@ -1,4 +1,4 @@
-# HYDRA-Saliency
+# eHYDRA: An Ante-hoc Explanation Method for the Efficient HYDRA Time Series Classifier
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.13](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/downloads/release/python-3110/)

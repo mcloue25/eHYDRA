@@ -99,7 +99,7 @@ eHYDRA's own median time is nearly identical across both conditions (0.202s CPU 
 
 
 
-**Complexity.** eHYDRA's cost advantage is structural, not just empirical, each method's cost below is in terms of forward model evaluations required per explained instance:
+**Complexity.** eHYDRA's cost advantage is structural, each method's cost below is in terms of forward model evaluations required per explained instance:
 
 | Method | Model calls | Background required? | Tunable hyperparameters |
 |---|---|---|---|
@@ -776,10 +776,10 @@ Reported for reproducibility of the timing/complexity results in [Section 7](#7-
 - **Motherboard:** TUF GAMING X570-PLUS (WI-FI) 
 - **RAM:** CORSAIR VENGEANCE RGB DDR5 32GB (2x16GB) DDR5
 - **GPU:** NVIDIA GeForce RTX 3070
-- **CUDA version:** [e.g. 12.1] — relevant for `run_captum_comparison.py --device cuda` and any TSHAP GPU runs
+- **CUDA version:** Release 12.4, V12.4.131
 - **SSD:** Micron/Crucial Technology CT500P2SSD8
 - **HDD:** Seagate BarraCuda 1 TB Internal Hard Drive HDD
-- **OS:** [e.g. Ubuntu 22.04 LTS] — should already roughly match the "Tested configuration" line in Environment Setup, worth keeping these two consistent
+- **OS:**  Ubuntu 26.04 LTS
 - **Python version:** I developed this repo using Python 3.13.14
 
 Thanks for taking the time to read this, Eoin
